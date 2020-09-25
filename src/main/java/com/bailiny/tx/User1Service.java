@@ -17,8 +17,8 @@ public class User1Service {
     @Autowired
     private User1Repository user1Repository;
 
-    @Transactional(propagation = Propagation.REQUIRED)
-    public void addRequired(User1 user) {
+    @Transactional(propagation = Propagation.NOT_SUPPORTED, rollbackFor = Exception.class)
+    public void add(User1 user) {
         user1Repository.save(user);
     }
 }
