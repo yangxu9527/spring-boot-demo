@@ -17,12 +17,12 @@ public class User2Service {
     @Autowired
     private User2Repository user2Repository;
 
-    @Transactional(propagation = Propagation.NOT_SUPPORTED, rollbackFor = Exception.class)
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     public void add(User2 user) {
         user2Repository.save(user);
     }
 
-    @Transactional(propagation = Propagation.NOT_SUPPORTED, rollbackFor = Exception.class)
+    //    @Transactional(propagation = Propagation.REQUIRED)
     public void addException(User2 user) {
         user2Repository.save(user);
         throw new RuntimeException();
